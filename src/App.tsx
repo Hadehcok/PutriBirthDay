@@ -286,7 +286,7 @@ export default function App() {
             <div className="photo-strip flex gap-6 md:gap-12 px-6 md:px-12 items-start w-fit">
               <div className="photo-strip-item scale-[0.85] md:scale-100 origin-top">
                 <Polaroid 
-                  src="/DnDTogether.jpeg"
+                  src="/DnDTogether.webp"
                   alt="DnD games"
                   caption="Playing DnD together"
                   rotation={2}
@@ -294,7 +294,7 @@ export default function App() {
               </div>
               <div className="photo-strip-item mt-10 md:mt-20 scale-[0.85] md:scale-100 origin-top">
                 <Polaroid 
-                  src="/PantaiKuta.jpeg"
+                  src="/PantaiKuta.webp"
                   alt="Beach day"
                   caption="Salty air & laughter"
                   rotation={-4}
@@ -302,7 +302,7 @@ export default function App() {
               </div>
               <div className="photo-strip-item scale-[0.85] md:scale-100 origin-top">
                 <Polaroid 
-                  src="/Nugas.jpeg"
+                  src="/Nugas.webp"
                   alt="Nugas"
                   caption="Accompany me while coding"
                   rotation={3}
@@ -310,7 +310,7 @@ export default function App() {
               </div>
               <div className="photo-strip-item mt-8 md:mt-12 scale-[0.85] md:scale-100 origin-top">
                 <Polaroid 
-                  src="/Gogo.jpeg"
+                  src="/Gogo.webp"
                   alt="Gogo date"
                   caption="Simple Restaurant Dates"
                   rotation={-2}
@@ -359,7 +359,7 @@ export default function App() {
             <div className="relative w-full h-full">
               <div className="scattered-item absolute top-[20%] left-[5%] md:left-[10%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
-                  src="/1.jpeg" 
+                  src="/1.webp" 
                   alt="Moment 1" 
                   caption="My room"
                   rotation={-5}
@@ -367,7 +367,7 @@ export default function App() {
               </div>
               <div className="scattered-item absolute top-[15%] right-[2%] md:right-[15%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
-                  src="/2.jpeg" 
+                  src="/2.webp" 
                   alt="Moment 2" 
                   caption="Eat again"
                   rotation={8}
@@ -375,7 +375,7 @@ export default function App() {
               </div>
               <div className="scattered-item absolute top-[45%] left-[-5%] md:left-[20%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
-                  src="/3.jpeg" 
+                  src="/3.webp" 
                   alt="Moment 3" 
                   caption="Nasi Goreng with Pork & Beacon"
                   rotation={-2}
@@ -383,7 +383,7 @@ export default function App() {
               </div>
               <div className="scattered-item absolute top-[50%] right-[-5%] md:right-[10%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
-                  src="/4.jpeg" 
+                  src="/4.webp" 
                   alt="Moment 4" 
                   caption="Romantic Hug"
                   rotation={4}
@@ -391,7 +391,7 @@ export default function App() {
               </div>
               <div className="scattered-item absolute top-[70%] left-[10%] md:left-[15%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
-                  src="5.jpeg" 
+                  src="5.webp" 
                   alt="Moment 5" 
                   caption="Always together"
                   rotation={-7}
