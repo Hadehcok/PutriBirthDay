@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "start": "npm run build && node server.js",
-    "build": "vite build",
+    "start": "VITE_CACHE_DIR=/tmp/.vite npm run build && node server.js",
+    "build": "VITE_CACHE_DIR=/tmp/.vite vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
