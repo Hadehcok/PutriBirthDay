@@ -148,23 +148,20 @@ export default function App() {
           start: "top top",
           end: "+=300%",
           pin: true,
-          scrub: 1.5,
+          scrub: 1,
         }
       });
 
+      // Animate each item in sequence within the pinned timeline
       gsap.utils.toArray('.scattered-item').forEach((item: any, i) => {
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: "top bottom",
-            end: "center center",
-            scrub: 1
-          },
-          x: i % 2 === 0 ? -500 : 500,
-          y: 200,
-          rotation: i % 2 === 0 ? -45 : 45,
-          opacity: 0
-        });
+        ch4Tl.from(item, {
+          x: i % 2 === 0 ? -200 : 200,
+          y: 100,
+          rotation: i % 2 === 0 ? -25 : 25,
+          opacity: 0,
+          duration: 1,
+          ease: "power2.out"
+        }, i * 0.5); // Stagger them by 0.5 units in timeline time
       });
 
       // 6. Chapter 5: Love Letter Reveal
@@ -352,15 +349,15 @@ export default function App() {
           {/* Chapter 4: Little Moments */}
           <section 
             ref={chapter4Ref}
-            className="relative h-[250vh] md:h-[200vh] bg-offwhite py-16 md:py-24 overflow-hidden"
+            className="relative h-screen bg-offwhite overflow-hidden"
           >
-            <div className="sticky top-16 md:top-24 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none px-4 w-full">
+            <div className="absolute top-16 md:top-24 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none px-4 w-full">
               <span className="font-script text-amber text-3xl md:text-4xl block italic">The Chapters In-between</span>
               <h2 className="text-3xl md:text-6xl font-serif text-burgundy drop-shadow-sm">Little Moments</h2>
             </div>
             
-            <div className="relative w-full h-full mt-24 md:mt-32">
-              <div className="scattered-item absolute top-[5%] md:top-[10%] left-[5%] md:left-[10%] scale-[0.7] md:scale-100">
+            <div className="relative w-full h-full">
+              <div className="scattered-item absolute top-[20%] left-[5%] md:left-[10%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
                   src="/1.jpeg" 
                   alt="Moment 1" 
@@ -368,7 +365,7 @@ export default function App() {
                   rotation={-5}
                 />
               </div>
-              <div className="scattered-item absolute top-[20%] md:top-[25%] right-[2%] md:right-[15%] scale-[0.7] md:scale-100">
+              <div className="scattered-item absolute top-[15%] right-[2%] md:right-[15%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
                   src="/2.jpeg" 
                   alt="Moment 2" 
@@ -376,7 +373,7 @@ export default function App() {
                   rotation={8}
                 />
               </div>
-              <div className="scattered-item absolute top-[40%] md:top-[45%] left-[-5%] md:left-[20%] scale-[0.7] md:scale-100">
+              <div className="scattered-item absolute top-[45%] left-[-5%] md:left-[20%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
                   src="/3.jpeg" 
                   alt="Moment 3" 
@@ -384,7 +381,7 @@ export default function App() {
                   rotation={-2}
                 />
               </div>
-              <div className="scattered-item absolute top-[55%] md:top-[60%] right-[-5%] md:right-[10%] scale-[0.7] md:scale-100">
+              <div className="scattered-item absolute top-[50%] right-[-5%] md:right-[10%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
                   src="/4.jpeg" 
                   alt="Moment 4" 
@@ -392,7 +389,7 @@ export default function App() {
                   rotation={4}
                 />
               </div>
-              <div className="scattered-item absolute top-[75%] md:top-[80%] left-[10%] md:left-[15%] scale-[0.7] md:scale-100">
+              <div className="scattered-item absolute top-[70%] left-[10%] md:left-[15%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
                   src="5.jpeg" 
                   alt="Moment 5" 
