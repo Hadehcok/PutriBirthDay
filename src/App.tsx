@@ -330,6 +330,7 @@ export default function App() {
                 loop 
                 muted={false}
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover grayscale opacity-40 scale-[1.1]"
               >
                 <source src="/Chapter3.mp4" type="video/mp4" />
@@ -391,7 +392,7 @@ export default function App() {
               </div>
               <div className="scattered-item absolute top-[70%] left-[10%] md:left-[15%] scale-[0.7] md:scale-90 lg:scale-100">
                 <Polaroid 
-                  src="5.webp" 
+                  src="/5.webp" 
                   alt="Moment 5" 
                   caption="Always together"
                   rotation={-7}

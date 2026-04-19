@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -14,6 +15,8 @@ interface PolaroidProps {
 }
 
 export default function Polaroid({ src, alt, caption, className, rotation = 0 }: PolaroidProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <div 
       className={cn(
@@ -26,7 +29,12 @@ export default function Polaroid({ src, alt, caption, className, rotation = 0 }:
         <img 
           src={src} 
           alt={alt} 
-          className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+          className={cn(
+            "w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000",
+            isLoaded ? "opacity-100" : "opacity-0"
+          )}
+          onLoad={() => setIsLoaded(true)}
+          decoding="async"
           referrerPolicy="no-referrer"
           loading="lazy"
         />
