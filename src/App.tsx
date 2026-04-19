@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import MusicGate from './components/MusicGate';
 import Polaroid from './components/Polaroid';
 import FloatingMusicControls from './components/FloatingMusicControls';
@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const [gatePassed, setGatePassed] = useState(false);
+  const [isVideoBuffering, setIsVideoBuffering] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const mainContainerRef = useRef<HTMLDivElement>(null);
@@ -332,9 +333,32 @@ export default function App() {
                 playsInline
                 preload="metadata"
                 className="w-full h-full object-cover grayscale opacity-40 scale-[1.1]"
+                onWaiting={() => setIsVideoBuffering(true)}
+                onPlaying={() => setIsVideoBuffering(false)}
+                onCanPlay={() => setIsVideoBuffering(false)}
               >
                 <source src="/Chapter3.mp4" type="video/mp4" />
               </video>
+              
+              {/* Cinematic Loading Overlay */}
+              <AnimatePresence>
+                {isVideoBuffering && (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute inset-0 z-20 flex items-center justify-center bg-charcoal/40 backdrop-blur-[2px]"
+                  >
+                    <div className="text-center space-y-4">
+                      <div className="w-12 h-12 border-2 border-amber/30 border-t-amber rounded-full animate-spin mx-auto" />
+                      <p className="font-serif italic text-cream text-xl tracking-widest animate-pulse">
+                        Loading Memory...
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]" />
             </div>
             <div className="relative z-10 text-center px-6 max-w-4xl">
