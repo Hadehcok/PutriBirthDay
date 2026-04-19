@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Sacramento&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-script: "Sacramento", cursive;
+
+  --color-cream: #F5ECD7;
+  --color-amber: #C8882A;
+  --color-burgundy: #5C1A1A;
+  --color-sepia: #A07850;
+  --color-offwhite: #FAF6EF;
+  --color-charcoal: #2A1F1F;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-charcoal font-body antialiased selection:bg-burgundy selection:text-cream;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Global Vignette */
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 0 150px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 90;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-burgundy/20 hover:bg-burgundy/40 transition-colors;
+}
+
+/* Polaroid Styles */
+.polaroid {
+  @apply bg-white border border-charcoal/5 flex flex-col items-center;
+  padding: 15px 15px 60px 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.polaroid:hover {
+  @apply transition-transform duration-300;
+}
+
+.photo-caption {
+  @apply font-script text-xl md:text-2xl mt-4 text-charcoal/80;
+}
+
+/* Music Gate Custom Styles */
+.gate-shadow {
+  box-shadow: inset 0 0 200px rgba(0,0,0,0.8);
+}
+
+.gate-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Text Contrast Utilities */
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow-md {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.text-glow-light {
+  text-shadow: 0 0 15px rgba(245, 236, 215, 0.8), 0 0 30px rgba(245, 236, 215, 0.4);
+}
+
+.text-glow-dark {
+  text-shadow: 0 0 15px rgba(42, 31, 31, 0.4);
+}
