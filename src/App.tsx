@@ -231,7 +231,7 @@ export default function App() {
           >
             <div 
               className="hero-bg absolute inset-0 bg-cover bg-center grayscale-[20%] scale-[1.3] md:scale-110"
-              style={{ backgroundImage: 'url(HeroSection.jpeg)' }}
+              style={{ backgroundImage: 'url(HeroSection.webp)' }}
             />
             {/* Stronger Cinematic Overlay */}
             <div className="absolute inset-0 bg-black/40" /> 
@@ -265,7 +265,7 @@ export default function App() {
               </div>
               <div className="ch1-photo flex justify-center scale-90 md:scale-100">
                 <Polaroid 
-                  src="/Chapter1.jpeg"
+                  src="/Chapter1.webp"
                   alt="Our first meeting"
                   caption="Where it all began"
                   rotation={-3}
